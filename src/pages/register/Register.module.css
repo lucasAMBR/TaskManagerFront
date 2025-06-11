@@ -1,0 +1,118 @@
+.login_area{
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    padding: 25px;
+    border: 1px solid purple;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo_wrapper{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo_wrapper p{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.input_wrapper{
+    background-color: rgb(202, 99, 202);
+    width: 370px;
+    height: 40px;
+    display: flex;
+    margin-bottom: 10px;
+    border: 1px solid rgb(202, 99, 202);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.input_icon{
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input_wrapper input{
+    width: 100%;
+    border: none;
+    padding-left: 10px;
+}
+
+.input_wrapper input:focus{
+    outline: none;
+    color: rgb(95, 46, 95);
+}
+
+.input_wrapper:focus-within{
+    background-color: rgb(95, 46, 95);
+    border: 2px solid rgb(95, 46, 95);
+}
+
+.input_wrapper select{
+    width: 100%;
+    border: none;
+    padding-left: 10px;
+}
+
+.input_wrapper select:focus{
+    outline: none;
+}
+
+select option:hover{
+    z-index: 100;
+}
+
+.login_submit{
+    margin-top: 30px;
+    width: 370px;
+    height: 40px;
+    background-color: rgb(202, 99, 202);
+    border-radius: 10px;
+    border: 1px solid rgb(202, 99, 202);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login_submit:hover{
+    background-color: rgb(95, 46, 95);
+    color: white;
+}
+
+.button_wrapper p{
+    margin-top: 5px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.button_wrapper p span{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.register_text{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.register_text span{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.register_text span:hover{
+    color: purple;
+}
+
+.button_wrapper p span:hover{
+    color: purple;
+}
