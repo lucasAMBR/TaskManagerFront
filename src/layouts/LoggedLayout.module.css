@@ -1,0 +1,41 @@
+.page{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255, 251, 254);
+}
+
+.logged_navbar{
+    background-color: purple;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 50px;
+    height: 60px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+}
+
+.logout_button{
+    background-color: rgb(50, 15, 51);
+    border: solid 1px rgb(50, 15, 51);
+    color: white;
+    border-radius: 3px;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.logout_button:hover{
+    background-color: white;
+    border: 1px solid white;
+    color: rgb(50, 15, 51);
+}
+
+.logout_button svg{
+    margin-right: 5px;
+}

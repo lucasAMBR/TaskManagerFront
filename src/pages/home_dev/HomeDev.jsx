@@ -1,6 +1,10 @@
+import style from "./HomeDev.module.css";
+
 export const HomeDev = () => {
 
     return(
-        <p>Teste</p>
+        <div className={style.page_content}>
+            Teste
+        </div>
     )
 }

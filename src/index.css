@@ -7,7 +7,7 @@
   font-family: "Archivo", sans-serif;
 }
 
-body{
+.root{
   display: flex;
   width: 100vw;
   height: 100vh;

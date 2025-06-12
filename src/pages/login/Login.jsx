@@ -31,10 +31,10 @@ export const Login = () => {
         try{
              const response = await api.post("auth/login", {
                 "email": emailInput,
-                "password": passwordConfirmInput
+                "password": passwordInput
             })
 
-            const {id, token, role} = login.data;
+            const {id, token, role} = response.data;
 
             setUserId(id);
             setUserToken(token);
@@ -48,7 +48,7 @@ export const Login = () => {
     useEffect(()=>{
         if(userRole == "MNG"){
             navigate("/home/mng");
-        }else{
+        }else if(userRole == "DEV"){
             navigate("/home/dev")
         }
     }, [userRole])
@@ -69,7 +69,7 @@ export const Login = () => {
                     <input type="password" placeholder="Password" value={passwordInput} onChange={handlePasswordInput}/>
                 </div>
                 <div className={style.button_wrapper}>
-                    <button className={style.login_submit}>Login</button>
+                    <button className={style.login_submit} onClick={handleLogin}>Login</button>
                     <p>Forgot your password? <span>Click here</span></p>
                 </div>
             </form>

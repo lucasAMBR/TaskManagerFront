@@ -1,24 +1,22 @@
-.login_area{
-    background-color: transparent;
-    backdrop-filter: blur(20px);
-    padding: 25px;
-    border: 1px solid purple;
+.modal_area{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.618);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_content{
+    background-color: white;
+    padding: 20px;
     border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
 }
 
-.logo_wrapper{
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.logo_wrapper p{
-    font-weight: bold;
-    font-size: 18px;
-}
 
 .input_wrapper{
     background-color: rgb(202, 99, 202);
@@ -69,8 +67,17 @@ select option:hover{
     z-index: 100;
 }
 
+form{
+    margin-top: 15px;
+}
+
+.button_wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
 .login_submit{
-    margin-top: 30px;
+    margin-top: 10px;
     width: 370px;
     height: 40px;
     background-color: rgb(202, 99, 202);
@@ -87,32 +94,21 @@ select option:hover{
     color: white;
 }
 
-.button_wrapper p{
+.alt_button{
     margin-top: 5px;
-    text-align: center;
-    font-size: 12px;
-}
-
-.button_wrapper p span{
-    text-decoration: underline;
+    width: 370px;
+    height: 40px;
+    background-color: rgb(92, 81, 92);
+    border-radius: 5px;
+    border: 1px solid rgb(92, 81, 92);
+    color: white;
+    font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.register_text{
-    margin-top: 30px;
-    text-align: center;
-    font-size: 14px;
-}
-
-.register_text span{
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.register_text span:hover{
-    color: purple;
-}
-
-.button_wrapper p span:hover{
+.alt_button:hover{
+    background-color: white;
+    border: 1px solid purple;
     color: purple;
 }

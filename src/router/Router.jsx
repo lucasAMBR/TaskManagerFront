@@ -5,6 +5,7 @@ import { Register } from "../pages/register/Register";
 import { LoggedLayout } from "../layouts/LoggedLayout";
 import { HomeDev } from "../pages/home_dev/HomeDev";
 import { HomeMng } from "../pages/home_mng/HomeMng";
+import { Projects } from "../pages/projects/Projects";
 
 export const Router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ export const Router = createBrowserRouter([
             {
                 path: "/home/mng",
                 element: <HomeMng />
+            },
+            {
+                path: "/home/project/:projectId",
+                element: <Projects />
             }
         ]
     }
