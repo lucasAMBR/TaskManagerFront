@@ -4,6 +4,7 @@ import style from "./HomeMng.module.css";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/Api";
 import { CreateProjectModal } from "./components/CreateProjectModal";
+import AddBoxIcon from '@mui/icons-material/AddBox';
 
 export const HomeMng = () => {
 
@@ -44,11 +45,18 @@ export const HomeMng = () => {
                     {projectList.length > 0 && projectList.map((project, index) => (
                         <ProjectCard key={index} name={project.name} description={project.description} onClick={() => navigate(`/home/project/${project.id}`)}/>
                     ))}
+                    {projectList.length > 0 && 
+                        <div className={style.card}>
+                            <div className={style.card_box} onClick={() => setCreateProjectModalOpen(true)}>
+                                <AddBoxIcon sx={{fill: "#ffffff", scale: 2.5}} />
+                            </div>
+                        </div>
+                    }
                 </div>
-            </div>
             {createProjectModalOpen &&
                 <CreateProjectModal setModal={setCreateProjectModalOpen} fetchProjects={fetchProjectList}/>
             }
+        </div>
         </div>
     )
 }

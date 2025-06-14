@@ -19,6 +19,10 @@
     flex: 1;
 }
 
+.projects{
+    display: flex;
+}
+
 .no_projects{
     display: flex;
     align-items: center;
@@ -39,4 +43,55 @@
 .no_project_button:hover{
     background-color: rgb(179, 45, 179);
     border: 1px solid rgb(179, 45, 179);
+}
+
+.card{
+    display: flex;
+    margin-left: 10px;
+}
+
+.card_box{
+    background-color: purple;
+    width: 300px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 60px;
+    color: white;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid rgb(219, 194, 219);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card_box:hover{
+    scale: 1.02;
+    background-color: rgb(165, 0, 165);
+}
+
+.edit_button{
+    background-color: purple;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    font-size: 25px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-left: -30px;
+    margin-top: -20px;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.edit_button:hover{
+    scale: 1.1;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.523);
 }

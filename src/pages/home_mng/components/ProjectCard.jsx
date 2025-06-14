@@ -10,19 +10,6 @@ export const ProjectCard = ({ id, name, description, onClick}) => {
 
     const [ loading, setLoading ] = useState(true);
 
-    const fetchProjectData = async() => {
-        try{
-            const response = await api.get(`/project/${projectId}`)
-
-            console.log(response.data);
-            setProjectData(response.data)
-
-            setLoading(false);
-        }catch(error){
-            console.error(error);
-        }
-    }
-
     return(
         <div className={style.card}>
             <div className={style.card_box} onClick={onClick}>
