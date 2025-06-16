@@ -14,18 +14,42 @@
     margin-top: 15px;
 }
 
-.goals{
-    margin-top: 20px;
-    margin-bottom: 20px;
+.project_desc{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .project_list{
-    margin-top: 30px;
+    margin-top: 15px;
+    display: flex;
+
     flex: 1;
+}
+
+.task_table_header{
+    width: 100%;
+    background-color: purple;
+    height: 50px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .projects{
     display: flex;
+    flex: 3;
+    height: 100%;
+    background-color: aqua;
+    margin-right: 10px;
+}
+
+.devs{
+    display: flex;
+    flex: 1;
+    height: 100%;
+    background-color: red;
 }
 
 .no_projects{

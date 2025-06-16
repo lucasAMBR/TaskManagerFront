@@ -1,5 +1,6 @@
 .card{
     display: flex;
+    margin-right: 10px;
 }
 
 .card_box{
@@ -17,8 +18,18 @@
     transition: 0.3s;
 }
 
+.card_box h2{
+    color: purple;
+}
+
 .card_box:hover{
-    scale: 1.02;
+    background-color: rgb(246, 211, 246);
+}
+
+.leaderId{
+    font-size: 12px;
+    margin-top: 10px;
+    color: purple;
 }
 
 .edit_button{

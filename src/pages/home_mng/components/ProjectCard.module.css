@@ -1,5 +1,6 @@
 .card{
     display: flex;
+    margin-right: 10px;
 }
 
 .card_box{
@@ -18,7 +19,7 @@
 }
 
 .card_box:hover{
-    scale: 1.02;
+    background-color: rgb(246, 211, 246);
 }
 
 .edit_button{
@@ -37,7 +38,6 @@
     margin-top: -20px;
     transition: 0.3s;
     cursor: pointer;
-    z-index: 2;
 }
 
 .edit_button:hover{

@@ -6,6 +6,7 @@ import { LoggedLayout } from "../layouts/LoggedLayout";
 import { HomeDev } from "../pages/home_dev/HomeDev";
 import { HomeMng } from "../pages/home_mng/HomeMng";
 import { Projects } from "../pages/projects/Projects";
+import { Team } from "../pages/team_details/Team";
 
 export const Router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ export const Router = createBrowserRouter([
             {
                 path: "/home/project/:projectId",
                 element: <Projects />
+            },
+            {
+                path: "/home/team/:teamId",
+                element: <Team />
             }
         ]
     }
