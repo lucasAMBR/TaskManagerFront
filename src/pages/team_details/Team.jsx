@@ -5,6 +5,10 @@ import api from "../../api/Api";
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import { useAuth } from "../../contexts/AuthContext";
 import { InsertManuallyModal } from "./components/InsertManuallyModal";
+import { CreateTaskModal } from "./components/CreateTaskModal";
+import { GenerateInviteCodeModal } from "./components/GenerateInviteCodeModal";
+import { AssignTaskModal } from "./components/AssignTaskModal";
+import { TakeTaskModal } from "./components/TakeTaskModal";
 
 export const Team = () => {
 
@@ -19,6 +23,22 @@ export const Team = () => {
     const [ membersData, setMembersData ] = useState([]);
 
     const [ addManuallyModalIsOpen, setAddManuallyModalIsOpen ] = useState(false);
+    const [ createTaskModalIsOpen, setCreateTaskModalIsOpen ] = useState(false);
+    const [ generateInviteCodeModalIsOpen, setGenerateInviteCodeModalIs ] = useState(false);
+    const [ assignTaskModalIsOpen, setAssignTaskModalIsOpen ] = useState(false);
+    const [ takeTaskModalIsOpen, setTakeTaskModalIsOpen ] = useState(false);
+
+    const [ choosedTask, setChoosedTask] = useState(null)
+
+    const handleAssignOpen = (id) => {
+        setChoosedTask(id);
+        setAssignTaskModalIsOpen(true)   
+    }
+
+    const handleTakeTask = (id) => {
+        setChoosedTask(id);
+        setTakeTaskModalIsOpen(true);
+    }
 
     const navigate = useNavigate();
 
@@ -58,17 +78,19 @@ export const Team = () => {
             <p className={style.project_desc}>Detalhes do projeto</p>
             {userId == teamData.leaderId && 
                 <div>
-                    <button className={style.button_task}>Create Task</button>
+                    <button className={style.button_task} onClick={() => setCreateTaskModalIsOpen(true)}>Create Task</button>
                     <button className={style.button_task} onClick={() => setAddManuallyModalIsOpen(true)}>Insert member manually</button>
-                    <button className={style.button_task}>Generate Invite code</button>
+                    <button className={style.button_task} onClick={() => setGenerateInviteCodeModalIs(true)}>Generate Invite code</button>
+                    <button className={style.button_task} onClick={() => setGenerateInviteCodeModalIs(true)}>View Conclusion Notes</button>
                 </div>
             }
 
             {userRole == "MNG" &&
                 <div>
-                    <button className={style.button_task}>Create Task</button>
+                    <button className={style.button_task} onClick={() => setCreateTaskModalIsOpen(true)}>Create Task</button>
                     <button className={style.button_task} onClick={() => setAddManuallyModalIsOpen(true)}>Insert member manually</button>
-                    <button className={style.button_task}>Generate Invite code</button>
+                    <button className={style.button_task} onClick={() => setGenerateInviteCodeModalIs(true)}>Generate Invite code</button>
+                    <button className={style.button_task} onClick={() => setGenerateInviteCodeModalIs(true)}>View Conclusion Notes</button>
                 </div>
             }
             <h2>Tarefas</h2>
@@ -77,28 +99,40 @@ export const Team = () => {
                     <div className={style.task_table_header} onClick={() => console.log(teamData)}>Tasks</div>
                     {taskList.map((item, index) => (
                         <div className={style.task_table_item}>
-                            <p>{item.description}</p>
-                            <p>{formatDate(item.initialDate)}</p>
-                            <p>{formatDate(item.finalDate)}</p>
-                            <p>{item.assigneeId == null ? "Free" : item.assigneeName}</p>
+                            <p className={[style.task_item_part, style.task_desc].join(" ")}>{item.description}</p>
+                            <p className={style.task_item_part}>{formatDate(item.initialDate)}</p>
+                            <p className={style.task_item_part}>{formatDate(item.finalDate)}</p>
+                            <p className={style.task_item_part}>{item.assigneeId == null ? "Free" : item.assigneeName}</p>
+                            <div className={style.action_button_wrapper}>
                             {userRole == "MNG" && 
-                                <>
-                                    <button className={style.assign_button}>Atribuir</button>
-                                </>
-                            }
-                            {userId == teamData.leaderId && userRole == "DEV" && 
-                                <div>
-                                    <button className={style.assign_button}>Pegar tarefa</button>
-                                    <button className={style.assign_button}>Atribuir</button>
+                                <div className={style.task_item_part}>
+                                    <button className={style.assign_button} onClick={() => handleAssignOpen(item.id)}>{item.assigneeId != null ? "Change Assignee" : "Assign"}</button>
                                 </div>
                             }
-                            {item.assigneeId == null &&
-                                <>
-                                    {userId != teamData.leaderId && userRole != "MNG" &&
-                                        <button className={style.assign_button}>Pegar tarefa</button>
+                            {userId == teamData.leaderId && userRole == "DEV" && 
+                                <div className={style.task_item_part}>
+                                    <button className={style.assign_button} onClick={() => handleAssignOpen(item.id)}>{item.assigneeId != null ? "Change Assignee" : "Assign"}</button>
+                                    {item.assigneeId != userId &&
+                                        <button className={style.assign_button} onClick={() => handleTakeTask(item.id)}>Take task</button>
                                     }
-                                </>
+                                </div>
                             }
+                            {item.assigneeId == null && userId != teamData.leaderId && userRole != "MNG" &&
+                                <div className={style.task_item_part}>
+                                        <button className={style.assign_button} onClick={() => handleTakeTask(item.id)}>Take task</button>
+                                </div>
+                            }
+                            {item.assigneeId == userId && 
+                                <div className={style.task_item_part}>
+                                    <button className={style.assign_button}>Conclude Task</button>
+                                </div>
+                            }
+                            {userId != teamData.leaderId && userRole == "DEV" && item.assigneeId != userId && item.assigneeId != null &&
+                                <div className={style.task_item_part}>
+                                    <button className={style.blocked_assign_button}>Blocked</button>
+                                </div>
+                            }
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -109,7 +143,7 @@ export const Team = () => {
                     {membersData.map((item,index)=> (
                         <div className={style.dev_table_item}>
                             <p className={style.devId}>{item.id}</p>
-                            <p>{item.name}</p>
+                            <p>{item.name} {item.id == teamData.leaderId ? " - Leader" : ""}</p>
                         </div>
                     ))
                         
@@ -118,6 +152,18 @@ export const Team = () => {
         </div>
         {addManuallyModalIsOpen &&
             <InsertManuallyModal fetchTasks={fetchTaskListAndTeamData} teamId={teamId} setModal={setAddManuallyModalIsOpen}/>
+        }
+        {createTaskModalIsOpen &&
+            <CreateTaskModal teamMembers={membersData} setModal={setCreateTaskModalIsOpen} fetchTasks={fetchTaskListAndTeamData} teamId={teamId}/>
+        }
+        {generateInviteCodeModalIsOpen &&
+            <GenerateInviteCodeModal setModal={setGenerateInviteCodeModalIs} teamId={teamId}/>
+        }
+        {assignTaskModalIsOpen &&
+            <AssignTaskModal memberList={membersData} setModal={setAssignTaskModalIsOpen} fetchTasks={fetchTaskListAndTeamData} taskId={choosedTask} setTaskId={setChoosedTask}/>
+        }
+        {takeTaskModalIsOpen &&
+            <TakeTaskModal taskId={choosedTask} setModal={setTakeTaskModalIsOpen} fetchTasks={fetchTaskListAndTeamData}/>
         }
         </div>
     )

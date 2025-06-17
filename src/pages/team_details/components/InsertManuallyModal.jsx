@@ -30,7 +30,7 @@ export const InsertManuallyModal = ({ fetchTasks, teamId, setModal }) => {
     return(
         <div className={style.modal_area}>
             <div className={style.modal_content}>
-                <h2>Update team data</h2>
+                <h2>Add a member</h2>
                 <form>
                     <div className={style.input_wrapper}>
                         <div className={style.input_icon}> <ComputerIcon sx={{fill: "#ffffff", width: "20px"}} /> </div>

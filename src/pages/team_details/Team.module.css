@@ -60,6 +60,16 @@
     transition: 0.3s;
 }
 
+.blocked_assign_button{
+    background-color: rgb(120, 120, 120);
+    border: 1px solid rgb(120, 120, 120);
+    padding: 8px;
+    border-radius: 5px;
+    cursor:not-allowed;
+    margin-right: 5px;
+    transition: 0.3s;
+}
+
 .assign_button:hover{
     background-color: violet;
     border: 1px solid violet;
@@ -89,6 +99,33 @@
     align-items: center;
     justify-content: center;
 }
+
+.action_button_wrapper{
+    display: flex;
+}
+
+.task_item_part{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.task_item_part button{
+    width: 100px;
+    height: 45px;
+}
+
+p.task_item_part{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+p.task_item_part.task_desc{
+    flex: 2;
+}
+
 
 .projects{
     display: flex;

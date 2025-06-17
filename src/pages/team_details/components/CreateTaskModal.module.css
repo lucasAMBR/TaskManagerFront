@@ -1,0 +1,121 @@
+.modal_area{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.618);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal_content{
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+.input_wrapper{
+    background-color: rgb(202, 99, 202);
+    width: 370px;
+    height: 40px;
+    display: flex;
+    margin-bottom: 10px;
+    border: 1px solid rgb(202, 99, 202);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.input_icon{
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input_wrapper input{
+    width: 100%;
+    border: none;
+    padding-left: 10px;
+}
+
+input:disabled{
+    background-color: rgb(202, 99, 202);
+    cursor:not-allowed;
+    color: white;
+}
+
+.input_wrapper input:focus{
+    outline: none;
+    color: rgb(95, 46, 95);
+}
+
+.input_wrapper:focus-within{
+    background-color: rgb(95, 46, 95);
+    border: 2px solid rgb(95, 46, 95);
+}
+
+.input_wrapper select{
+    width: 100%;
+    border: none;
+    padding-left: 10px;
+}
+
+.input_wrapper select:focus{
+    outline: none;
+}
+
+select option:hover{
+    z-index: 100;
+}
+
+form{
+    margin-top: 15px;
+}
+
+.button_wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.login_submit{
+    margin-top: 10px;
+    width: 370px;
+    height: 40px;
+    background-color: rgb(202, 99, 202);
+    border-radius: 5px;
+    border: 1px solid rgb(202, 99, 202);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login_submit:hover{
+    background-color: rgb(95, 46, 95);
+    color: white;
+}
+
+.alt_button{
+    margin-top: 5px;
+    width: 370px;
+    height: 40px;
+    background-color: rgb(92, 81, 92);
+    border-radius: 5px;
+    border: 1px solid rgb(92, 81, 92);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.alt_button:hover{
+    background-color: white;
+    border: 1px solid purple;
+    color: purple;
+}

@@ -5,7 +5,7 @@
     height: 100vh;
     align-items: center;
     justify-content: center;
-    animation: backgroundSlide 10s ease-in-out infinite;
+    animation: backgroundSlide 8s ease-in-out infinite;
     background-image: url("/fundo.png");
     background-position: center;
     background-size: 100%;
