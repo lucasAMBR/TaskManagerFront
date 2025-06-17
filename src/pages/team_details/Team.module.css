@@ -29,6 +29,8 @@
 .task_table_header{
     width: 100%;
     background-color: purple;
+    justify-content: center;
+    color: white;
     height: 50px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -37,19 +39,87 @@
     align-items: center;
 }
 
+.task_table_item{
+    width: 100%;
+    background-color: rgb(234, 184, 234);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+    padding: 15px 30px;
+}
+
+.assign_button{
+    background-color: white;
+    border: 1px solid white;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: 0.3s;
+}
+
+.assign_button:hover{
+    background-color: violet;
+    border: 1px solid violet;
+    color: white;
+}
+
+.dev_table_item{
+    background-color: rgb(234, 184, 234);
+    padding: 15px;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+}
+
+.devId{
+    font-size: 12px;
+}
+
+.devs_table_header{
+    width: 100%;
+    background-color: purple;
+    color: white;
+    height: 50px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .projects{
     display: flex;
+    flex-direction: column;
     flex: 3;
     height: 100%;
-    background-color: aqua;
     margin-right: 10px;
+}
+
+.button_task{
+    background-color: purple;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid purple;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button_task:hover{
+    background-color: white;
+    color: purple;
 }
 
 .devs{
     display: flex;
+    flex-direction: column;
     flex: 1;
     height: 100%;
-    background-color: red;
 }
 
 .no_projects{
