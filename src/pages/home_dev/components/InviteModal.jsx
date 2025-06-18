@@ -7,10 +7,10 @@ import api from "../../../api/Api";
 
 export const InviteModal = ({ fetchProjects, setModal }) => {
 
-    const [ idInput, setIdInput ] = useState("");
+    const [ inviteCode, setInviteCode ] = useState("");
 
-    const handleIdChange = (e) => {
-        setIdInput(e.target.value)
+    const handleInviteCodeChange = (e) => {
+        setInviteCode(e.target.value);
     }
 
     const handleSuccess = () => {
@@ -18,12 +18,12 @@ export const InviteModal = ({ fetchProjects, setModal }) => {
         setModal(false);
     }
 
-    const handleInviteModal = async(e) => {
+    const handleInviteUse = async(e) => {
         e.preventDefault();
 
         try{
-            const response = await api.post(`/invitecode/enter/${idInput}`);
-
+            const response = await api.put(`/invitecode/enter/${inviteCode}`);
+            handleSuccess();
         handleSuccess();
         }catch(error){
             console.error(error);
@@ -37,10 +37,10 @@ export const InviteModal = ({ fetchProjects, setModal }) => {
                 <form>
                     <div className={style.input_wrapper}>
                         <div className={style.input_icon}> <ComputerIcon sx={{fill: "#ffffff", width: "20px"}} /> </div>
-                        <input type="text" placeholder="Insert invite code" value={idInput} onChange={handleIdChange}/>
+                        <input type="text" placeholder="Insert invite code" value={inviteCode} onChange={handleInviteCodeChange}/>
                     </div>
                     <div className={style.button_wrapper}>
-                        <button className={style.login_submit} >Use</button>
+                        <button className={style.login_submit} onClick={handleInviteUse}>Use</button>
                         <button className={style.alt_button} onClick={()=> setModal(false)}>Cancel</button>
                     </div>
                 </form>

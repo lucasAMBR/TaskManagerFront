@@ -1,6 +1,7 @@
 .card{
     display: flex;
     margin-right: 10px;
+    margin-top: 25px;
 }
 
 .card_box{
@@ -18,9 +19,48 @@
     transition: 0.3s;
 }
 
+.card_box_medium{
+    background-color: rgb(216, 181, 219);
+    width: 300px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid rgb(219, 194, 219);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card_box_high{
+    background-color: rgb(226, 156, 226);
+    width: 300px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid rgb(219, 194, 219);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
 .proj_id{
     color: purple;
     font-size: 14px;
+}
+
+.date_title{
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.date_title, .due_date{
+    color: purple;
 }
 
 .card_box:hover{
